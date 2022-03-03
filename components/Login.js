@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import React from "react";
+import { useContext, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,17 +7,17 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
-  //   Alert,
+  Alert,
 } from "react-native";
 // Context
-import UserContext from "../App";
+import { UserContext } from "../App";
 
 export default function Login() {
   const userContext = useContext(UserContext);
   const [id, setId] = useState(0);
 
   const handleSubmit = () => {
-    if (id > 0) {
+    if (id > 1) {
       userContext.setId(id);
     } else {
       Alert.alert("Unknown ID", "Please, try again.");
@@ -32,6 +33,7 @@ export default function Login() {
           style={styles.input}
           placeholder="Enter user ID"
           value={id}
+          keyboardType="numeric"
           onChangeText={setId}
           maxLength={10}
         />
