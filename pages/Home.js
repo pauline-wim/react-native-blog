@@ -1,10 +1,11 @@
+import React from "react";
 import { useContext } from "react";
 import { StyleSheet, SafeAreaView, Text } from "react-native";
 // Components
 import Login from "../components/Login";
 import Timeline from "../components/Timeline";
 // Context
-import UserContext from "../App";
+import { UserContext } from "../App";
 
 export default function Home() {
   const userContext = useContext(UserContext);
