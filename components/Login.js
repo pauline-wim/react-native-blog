@@ -17,7 +17,7 @@ export default function Login() {
   const [id, setId] = useState(0);
 
   const handleSubmit = () => {
-    if (id > 1) {
+    if (id > 0) {
       userContext.setId(id);
     } else {
       Alert.alert("Unknown ID", "Please, try again.");
