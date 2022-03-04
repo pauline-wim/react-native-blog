@@ -1,21 +1,43 @@
 import React from "react";
-// import { useContext } from "react";
+import { useContext } from "react";
 import {
   StyleSheet,
   Text,
   SafeAreaView,
+  View,
+  FlatList,
   // TouchableOpacity,
   // Alert,
 } from "react-native";
 // Context
-// import { UserContext } from "../App";
+import { UserContext } from "../App";
 
 export default function Timeline() {
-  // const userContext = useContext(UserContext);
+  const userContext = useContext(UserContext);
+
+  const renderItem = ({ item, index }) => {
+    return (
+      <View style={styles.post}>
+        <Text>{index}</Text>
+        <Text>User ID: {item.userId}</Text>
+        <Text>Title: {item.title}</Text>
+        <Text>{item.body}</Text>
+        <Text>N comments</Text>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Timeline</Text>
+      <View>
+        <Text style={styles.title}>Timeline</Text>
+        <FlatList
+          style={styles.list}
+          data={userContext.posts}
+          renderItem={renderItem}
+          keyExtractor={(_item, index) => index.toString()}
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -24,20 +46,19 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    height: 622,
   },
   title: {
     // fontWeight: "bold",
+    textAlign: "center",
+    paddingVertical: 5,
     fontSize: 30,
   },
-  btn: {
-    marginTop: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderWidth: 1,
+  post: {
+    margin: 10,
+    padding: 10,
     borderColor: "black",
-    borderRadius: 5,
+    borderWidth: 1,
+    borderRadius: 10,
   },
 });
