@@ -25,7 +25,7 @@ export default function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/add" element={<AddPost />} />
-            <Route exact path="/Profile" element={<Profile />} />
+            <Route exact path="/profile" element={<Profile />} />
           </Routes>
         </NativeRouter>
       </SafeAreaView>
