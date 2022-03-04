@@ -1,32 +1,21 @@
 import React from "react";
-import { useContext, useState } from "react";
+// import { useContext } from "react";
 import {
   StyleSheet,
   Text,
   SafeAreaView,
-  TouchableOpacity,
-  Alert,
+  // TouchableOpacity,
+  // Alert,
 } from "react-native";
 // Context
-import { UserContext } from "../App";
+// import { UserContext } from "../App";
 
 export default function Timeline() {
-  const userContext = useContext(UserContext);
-  // const [id, _setId] = useState(0);
+  // const userContext = useContext(UserContext);
 
-  const handleSubmit = () => {
-    if (userContext.id > 0) {
-      userContext.setId(0);
-    } else {
-      Alert.alert("Unknown ID", "Please, try again.");
-    }
-  };
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Timeline</Text>
-      <TouchableOpacity style={styles.btn} onPress={handleSubmit}>
-        <Text>Logout</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 }
